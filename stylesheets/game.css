@@ -21,6 +21,12 @@
   right: 0;
 }
 
+.board_column {
+  width: 70px;
+  height: 420px;
+  float: left;
+}
+
 .piece {
   position: absolute;
   display: inline-block;
@@ -30,11 +36,15 @@
   border-radius: 35px;
   background: #D64949; /* red */
   z-index: -1;
-  /*opacity: 0;*/
 }
-.piece.player2 {
+
+.piece.player0 {
   background: #EAEA0F; /* yellow */
 }
 .piece.won {
   background: purple;
+}
+.piece.turn_piece {
+  top: -35px;
+  animation: turn_piece_in 1s;
 }

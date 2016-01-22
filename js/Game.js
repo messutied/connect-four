@@ -1,18 +1,23 @@
 function Game() {
+
   // constants
+
   var BOARD_PIECE_SIZE = 70;
   var PLAYERS = ['Yellow', 'Red'];
 
   // instance private variables
+
   var matrix = [];
   var dummyPiecem, board;
   var turn = 1;
   var gameTerminated = false;
   var movesCountQueue = {}
 
+  // Public methods
+
   this.initialize = function() {
     dummyPiece = document.createElement('div');
-    dummyPiece.className = 'piece';
+    dummyPiece.className = 'piece turn_piece';
     $board = $('.board');
 
     for (var i=0; i<GameLogic.N_COLUMNS; i++) {
@@ -22,36 +27,40 @@ function Game() {
     setupEvents();
   }
 
-  // Events
+  // private methods
 
   var setupEvents = function() {
-    $board.click(onBoardClick);
+    $('.board_column').click(onBoardClick);
+
+    $('.board_column').mouseover(function(evt) {
+      $('.turn_piece').css({left: $(this).index()*BOARD_PIECE_SIZE});
+    });
   }
 
   var onBoardClick = function(evt) {
     if (gameTerminated) return false;
-    var placedX = Math.ceil(evt.offsetX / BOARD_PIECE_SIZE)-1;
+    var placedX = $(this).index();
     if (matrix[placedX].length >= GameLogic.N_ROWS) return false;
 
     var placedY = matrix[placedX].length;
     var placedYInversed = GameLogic.N_ROWS-placedY-1; // to place in the DOM
 
-    var piece = $(dummyPiece).clone();
-    piece.addClass(turn ? 'player1' : 'player2')
-         .addClass('piece_animate_intro_'+placedYInversed)
-         .addClass('piece_'+placedX+'-'+placedY);
-
-    piece.appendTo($board).css({
-      left: placedX*BOARD_PIECE_SIZE,
-      top: placedYInversed*BOARD_PIECE_SIZE
-    });
+    // animate and place turn piece into the board
+    $('.turn_piece').removeClass('turn_piece')
+      .addClass('piece_animate_intro_'+placedYInversed)
+      .addClass('piece_'+placedX+'-'+placedY)
+      .css({
+        left: placedX*BOARD_PIECE_SIZE,
+        top: placedYInversed*BOARD_PIECE_SIZE
+      });
 
     matrix[placedX].push(turn);
 
     if (!checkWinner(placedX, placedY)) {
       turn = turn ? 0 : 1;
-      $('.turn_info').hide();
-      $('.turn_info.player'+turn).show().addClass('turn_info_changed');
+      $(dummyPiece).clone().prependTo($board)
+        .css({left: placedX*BOARD_PIECE_SIZE})
+        .addClass('player'+turn);
     }
   }
 

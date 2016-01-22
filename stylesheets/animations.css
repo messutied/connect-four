@@ -40,7 +40,7 @@
   animation: piece_intro_1_row 200ms;
 }
 
-/* pieces connected annimation */
+/* pieces connected annimation - somebody won! */
 
 @keyframes pieces_connected {
   0%   { border-color: transparent; }
@@ -55,23 +55,14 @@
   animation-timing-function: ease-in;
 }
 
- /* player turn animation */
+/* turn piece appears in - indicator of whose turn is it */
 
-@keyframes player_turn_change {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-.turn_info_changed {
-  animation: player_turn_change 1s;
+@keyframes turn_piece_in {
+  from { opacity: 0; top: -70px; }
+  to   { opacity: 1; top: -35px }
 }
 
-/* modal animation */
-@keyframes modal_intro {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-/* game over animation */
+/* game over - background color animation */
 
 @keyframes player_1_won_animation {
   from { background-color: white; }

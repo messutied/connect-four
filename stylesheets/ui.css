@@ -9,6 +9,7 @@
   margin: 5px auto 0 auto;
   color: grey;
   font-size: 1.1em;
+  margin-bottom: 30px;
 }
 
 .turn_info {
@@ -37,49 +38,6 @@
   margin-top: 450px;
 }
 
-body.player_1_won {
-  background: #DE7E7E;
-  animation: player_1_won_animation 500ms;
-}
-body.player_0_won {
-  background: #F1F191;
-  animation: player_0_won_animation 500ms;
-}
-
-.modal {
-  display: none;
-  animation-name: modal_intro;
-  animation-duration: 2s;
-}
-.modal_overlay {
-  top: 0;
-  left: 0;
-  position: fixed;
-  z-index: 9;
-  background: #D64949;
-  width: 100%;
-  height: 100%;
-  opacity: .95;
-}
-.modal_overlay.player0 {
-  background: #EAEA0F;
-}
-.game_over_modal {
-  position: fixed;
-  z-index: 10;
-  top: 100px;
-  left: 0;
-  right: 0;
-  margin: auto;
-  width: 500px;
-  text-align: center;
-  background: white;
-  font-size: 3em;
-  padding: 1.5em;
-  border: 5px solid #6180A7;
-  border-radius: 20px;
-  box-shadow: #7B7B7B 0 0 50px;
-}
 a.play_again_btn {
   display: block;
   background: #6180A7;
@@ -93,4 +51,13 @@ a.play_again_btn {
   cursor: pointer;
   text-decoration: none;
   display: inline-block;
+}
+
+body.player_1_won {
+  background: #DE7E7E;
+  animation: player_1_won_animation 500ms;
+}
+body.player_0_won {
+  background: #F1F191;
+  animation: player_0_won_animation 500ms;
 }

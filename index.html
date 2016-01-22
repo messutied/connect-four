@@ -11,26 +11,35 @@
     <link rel="stylesheet" href="stylesheets/animations.css" media="screen" charset="utf-8">
     <link rel="stylesheet" href="stylesheets/ui.css" media="screen" charset="utf-8">
   </head>
+
   <body onload="new Game().initialize()">
     <div class="title">Welcome to <b>Connect Four</b></div>
-    <div class="game_explanation">Click on any column in the board to place a piece, the first one to connect 4 pieces in line wins!</div>
+    <div class="game_explanation">
+      Click on any column in the board to place a piece, the first one to
+      connect 4 pieces in line wins!
+    </div>
 
-    <div class="turn_info player1">It's player <b>Red</b> turn <span class='piece'></span></div>
-    <div class="turn_info player0">It's player <b>Yellow</b> turn <span class='piece player2'></span></div>
     <div class="game_over_info">Player <span class="player_name">-</span> won!</div>
 
     <div class="board_bg"></div>
-    <div class="board"></div>
+    <div class="board">
+      <!-- whose turn is it? this piece indicates it -->
+      <div class="piece turn_piece"></div>
+
+      <!-- hover and click events are captured by this columns -->
+      <div class="board_columns">
+        <div class="board_column"></div>
+        <div class="board_column"></div>
+        <div class="board_column"></div>
+        <div class="board_column"></div>
+        <div class="board_column"></div>
+        <div class="board_column"></div>
+        <div class="board_column"></div>
+      </div>
+    </div>
 
     <div class="game_over_info bottom_info">
       <a class="play_again_btn" href="index.html">Play Again</a>
     </div>
-
-
-    <div class="modal game_over_modal">
-      Player <span class="player_name"></span> Wins!
-      <a class="play_again_btn" href="index.html">Play Again</a>
-    </div>
-    <div class="modal modal_overlay"></div>
   </body>
 </html>
