@@ -37,6 +37,8 @@ function Game() {
     });
   }
 
+  // Handles placing pieces into the board (DOM)
+  // and stores them into a 2D array (matrix)
   var onBoardClick = function(evt) {
     if (gameTerminated) return false;
     var placedX = $(this).index();
@@ -64,10 +66,11 @@ function Game() {
     }
   }
 
+  // Checks is somebody won, by cheking in all the possible directions of a
+  // possible connect, if there is a connect highlights the pieces
   var checkWinner = function(placedX, placedY) {
     var resp = GameLogic.isVictory(matrix, placedX, placedY);
     if (resp) {
-      console.log(resp);
       for (var i = 0; i < resp.length; i++) {
         var place = resp[i];
         $('.piece_'+place[0]+'-'+place[1]).addClass('connected');

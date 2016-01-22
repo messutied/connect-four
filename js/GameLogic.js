@@ -3,6 +3,21 @@ var GameLogic = {
   N_ROWS: 6,
   N_COLUMNS: 7,
 
+  /*
+   * Checks if there is a victory in the currently placed piece against the
+   * given matrix
+   *
+   * @param {Array} matrix A 2D array containing all the pieces in the board, 1
+   *                for player 1, 0 for player 2
+   * @param {Number} placedX The position in the X axis of the currently placed piece
+   * @param {Number} placedY The position in the Y axis of the currently placed piece
+   * @param {Number} nRows The max number of rows the given matrix can have
+   * @param {Number} nColumnsThe max number of columns the given matrix can have
+   * @param {Number} connectsToWin The number of connects needed to win
+   *
+   * @returns {Boolean | Array} false if no connect was detected, otherwise an
+   *          array with the pieces coordinates that triggered the connect
+   */
   isVictory: function(matrix, placedX, placedY, nRows, nColumns, connectsToWin) {
     if (nRows == undefined) nRows = this.N_ROWS;
     if (nColumns == undefined) nColumns = this.N_COLUMNS;
