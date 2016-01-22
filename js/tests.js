@@ -7,7 +7,7 @@ function assertMultiplePositions(assert, cols, rows, matrix, responseExpected) {
 }
 
 function assertVictory(assert, placeX, placeY, matrix, responseExpected) {
-  assert.ok( !!GameLogic.isVictory(matrix, placeX, placeY) == responseExpected,
+  assert.equal( !!GameLogic.isVictory(matrix, placeX, placeY), responseExpected,
             'victory is'+(!responseExpected ? ' not ' : '')+
             ' detected at x: '+placeX+' - y: '+placeY );
 }
