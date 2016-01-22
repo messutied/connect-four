@@ -1,0 +1,31 @@
+.board {
+  margin: 20px auto;
+  /* 70x70 sprites - seven-column, six-row */
+  background: url('../sprites/board_piece.png');
+  background-size: 70px 70px;
+  width: 490px;
+  height: 420px;
+  position: relative;
+}
+
+.piece {
+  position: absolute;
+  display: inline-block;
+  width: 70px;
+  height: 70px;
+  border-radius: 35px;
+  background: red;
+  z-index: -1;
+}
+.piece.player2 {
+  background: yellow;
+}
+.piece.won {
+  background: purple;
+}
+
+.message {
+  margin: 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
