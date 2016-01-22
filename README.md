@@ -1,8 +1,6 @@
 # Connect Four Challenge
 
-```
-By Eduardo Messuti
-```
+See it in action at http://edd.bz/connect-four/index.html
 
 ## Test
 
