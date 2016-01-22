@@ -117,4 +117,20 @@ QUnit.test('Game.onVictory should detect Southeast to Northwest connects', funct
   assertVictory(assert, 3, 2, matrix, true);
   assertVictory(assert, 4, 1, matrix, false);
   assertVictory(assert, 5, 0, matrix, false);
+
+  var matrix = [
+    [1, 0, 1, 0, 1, 1],
+    [0, 0, 0, 1, 0, 1],
+    [1, 1, 1, 0, 1],
+    [1, 1, 0, 0],
+    [0, 0, 1],
+    [0, 0],
+    [0, 0, 1]
+  ];
+  assertVictory(assert, 1, 4, matrix, true);
+  assertVictory(assert, 2, 3, matrix, true);
+  assertVictory(assert, 3, 2, matrix, true);
+  assertVictory(assert, 4, 1, matrix, true);
+  assertVictory(assert, 5, 0, matrix, true);
+  assertVictory(assert, 6, 0, matrix, false);
 });
