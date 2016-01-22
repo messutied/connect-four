@@ -1,0 +1,72 @@
+.title {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.turn_info {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.turn_info.player0 {
+  display: none;
+}
+
+.turn_info .piece {
+  width: 36px;
+  height: 36px;
+  border-radius: 18px;
+  display: inline-block;
+  position: relative;
+  top: 12px;
+}
+
+.modal {
+  display: none;
+  animation-name: modal_intro;
+  animation-duration: 800ms;
+}
+.modal_overlay {
+  top: 0;
+  left: 0;
+  position: fixed;
+  z-index: 9;
+  background: #D64949;
+  width: 100%;
+  height: 100%;
+  opacity: .95;
+}
+.modal_overlay.player0 {
+  background: #EAEA0F;
+}
+.game_over_modal {
+  position: fixed;
+  z-index: 10;
+  top: 100px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 500px;
+  text-align: center;
+  background: white;
+  font-size: 3em;
+  padding: 1.5em;
+  border: 5px solid #6180A7;
+  border-radius: 20px;
+  box-shadow: #7B7B7B 0 0 50px;
+}
+.game_over_modal a.play_again_btn {
+  display: block;
+  background: #6180A7;
+  color: white;
+  margin: 1em auto;
+  margin-bottom: 0;
+  border: none;
+  font-size: .6em;
+  padding: .4em 2em;
+  box-shadow: #909090 0 0 10px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}

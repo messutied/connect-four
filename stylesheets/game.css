@@ -14,18 +14,13 @@
   width: 70px;
   height: 70px;
   border-radius: 35px;
-  background: red;
+  background: #D64949; /* red */
   z-index: -1;
+  /*opacity: 0;*/
 }
 .piece.player2 {
-  background: yellow;
+  background: #EAEA0F /* yellow */;
 }
 .piece.won {
   background: purple;
-}
-
-.message {
-  margin: 20px;
-  text-align: center;
-  font-size: 1.5em;
 }

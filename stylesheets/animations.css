@@ -1,0 +1,63 @@
+/* Pieces intro Animation */
+
+@keyframes piece_intro_5_row {
+  from { top: -35px; opacity: .2; }
+  to   { top: 350px; opacity: 1; }
+}
+.piece_animate_intro_5 {
+  animation-name: piece_intro_5_row;
+  animation-duration: 200ms;
+}
+
+@keyframes piece_intro_4_row {
+  from { top: -35px; opacity: .2; }
+  to   { top: 280px; opacity: 1; }
+}
+.piece_animate_intro_4 {
+  animation-name: piece_intro_4_row;
+  animation-duration: 200ms;
+}
+
+@keyframes piece_intro_3_row {
+  from { top: -35px; opacity: .2; }
+  to   { top: 210px; opacity: 1; }
+}
+.piece_animate_intro_3 {
+  animation-name: piece_intro_3_row;
+  animation-duration: 200ms;
+}
+
+@keyframes piece_intro_2_row {
+  from { top: -35px; opacity: .2; }
+  to   { top: 140px; opacity: 1; }
+}
+.piece_animate_intro_2 {
+  animation-name: piece_intro_2_row;
+  animation-duration: 200ms;
+}
+
+@keyframes piece_intro_1_row {
+  from { top: -35px; opacity: .2; }
+  to   { top: 70px; opacity: 1; }
+}
+.piece_animate_intro_1 {
+  animation-name: piece_intro_1_row;
+  animation-duration: 200ms;
+}
+
+ /* player turn animation */
+
+@keyframes player_turn_change {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.turn_info_changed {
+  animation-name: player_turn_change;
+  animation-duration: 1s;
+}
+
+/* modal animation */
+@keyframes modal_intro {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}

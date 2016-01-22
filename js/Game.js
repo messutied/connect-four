@@ -37,7 +37,8 @@ function Game() {
     var placedYInversed = GameLogic.N_ROWS-placedY-1; // to place in the DOM
 
     var piece = $(dummyPiece).clone();
-    piece.addClass(turn ? 'player1' : 'player2');
+    piece.addClass(turn ? 'player1' : 'player2')
+         .addClass('piece_animate_intro_'+placedYInversed);
 
     piece.appendTo($board).css({
       left: placedX*BOARD_PIECE_SIZE,
@@ -45,15 +46,22 @@ function Game() {
     });
 
     matrix[placedX].push(turn);
-    checkWinner(placedX, placedY);
 
-    turn = turn ? 0 : 1;
+    if (!checkWinner(placedX, placedY)) {
+      turn = turn ? 0 : 1;
+      $('.turn_info').hide();
+      $('.turn_info.player'+turn).show().addClass('turn_info_changed');
+    }
   }
 
   var checkWinner = function(placedX, placedY) {
     if (GameLogic.isVictory(matrix, placedX, placedY)) {
-      $('.message').html('Player '+PLAYERS[turn]+' won!');
+      $('.player_name').text(PLAYERS[turn]);
+      $('.modal_overlay').addClass('player'+turn);
+      $('.modal').show().addClass('turn_info_changed');
       gameTerminated = true;
+      return true;
     }
+    return false;
   }
 }

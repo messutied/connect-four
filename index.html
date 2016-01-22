@@ -8,9 +8,22 @@
     <script src="js/GameLogic.js" charset="utf-8"></script>
     <script src="js/Game.js" charset="utf-8"></script>
     <link rel="stylesheet" href="stylesheets/game.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="stylesheets/animations.css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="stylesheets/ui.css" media="screen" charset="utf-8">
   </head>
   <body onload="new Game().initialize()">
-    <div class="message">Welcome to <b>Connect Four</b></div>
+    <div class="title">Welcome to <b>Connect Four</b></div>
+
+    <div class="turn_info player1">It's player <span class="player_name">Red</span> turn <span class='piece'></span></div>
+    <div class="turn_info player0">It's player <span class="player_name">Yellow</span> turn <span class='piece player2'></span></div>
+
     <div class="board"></div>
+
+
+    <div class="modal game_over_modal">
+      Player <span class="player_name"></span> Wins!
+      <a class="play_again_btn" href="index.html">Play Again</a>
+    </div>
+    <div class="modal modal_overlay"></div>
   </body>
 </html>
