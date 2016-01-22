@@ -5,8 +5,7 @@
   to   { top: 350px; opacity: 1; }
 }
 .piece_animate_intro_5 {
-  animation-name: piece_intro_5_row;
-  animation-duration: 200ms;
+  animation: piece_intro_5_row 200ms;
 }
 
 @keyframes piece_intro_4_row {
@@ -14,8 +13,7 @@
   to   { top: 280px; opacity: 1; }
 }
 .piece_animate_intro_4 {
-  animation-name: piece_intro_4_row;
-  animation-duration: 200ms;
+  animation: piece_intro_4_row 200ms;
 }
 
 @keyframes piece_intro_3_row {
@@ -23,8 +21,7 @@
   to   { top: 210px; opacity: 1; }
 }
 .piece_animate_intro_3 {
-  animation-name: piece_intro_3_row;
-  animation-duration: 200ms;
+  animation: piece_intro_3_row 200ms;
 }
 
 @keyframes piece_intro_2_row {
@@ -32,8 +29,7 @@
   to   { top: 140px; opacity: 1; }
 }
 .piece_animate_intro_2 {
-  animation-name: piece_intro_2_row;
-  animation-duration: 200ms;
+  animation: piece_intro_2_row 200ms;
 }
 
 @keyframes piece_intro_1_row {
@@ -41,8 +37,22 @@
   to   { top: 70px; opacity: 1; }
 }
 .piece_animate_intro_1 {
-  animation-name: piece_intro_1_row;
-  animation-duration: 200ms;
+  animation: piece_intro_1_row 200ms;
+}
+
+/* pieces connected annimation */
+
+@keyframes pieces_connected {
+  0%   { border-color: transparent; }
+  30%  { border-color: purple; }
+  70%  { border-color: purple; }
+  100% { border-color: transparent; }
+}
+.piece.connected {
+  border: 15px solid purple;
+  animation: pieces_connected 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
 }
 
  /* player turn animation */
@@ -52,12 +62,22 @@
   to   { opacity: 1; }
 }
 .turn_info_changed {
-  animation-name: player_turn_change;
-  animation-duration: 1s;
+  animation: player_turn_change 1s;
 }
 
 /* modal animation */
 @keyframes modal_intro {
   from { opacity: 0; }
   to   { opacity: 1; }
+}
+
+/* game over animation */
+
+@keyframes player_1_won_animation {
+  from { background-color: white; }
+  to   { background-color: #DE7E7E }
+}
+@keyframes player_0_won_animation {
+  from { background-color: white; }
+  to   { background-color: #F1F191 }
 }

@@ -1,18 +1,23 @@
 .title {
-  margin-top: 20px;
+  margin-top: 10px;
   text-align: center;
   font-size: 1.5em;
+}
+.game_explanation {
+  width: 700px;
+  text-align: center;
+  margin: 5px auto 0 auto;
+  color: grey;
+  font-size: 1.1em;
 }
 
 .turn_info {
   text-align: center;
   font-size: 1.2em;
 }
-
 .turn_info.player0 {
   display: none;
 }
-
 .turn_info .piece {
   width: 36px;
   height: 36px;
@@ -20,12 +25,31 @@
   display: inline-block;
   position: relative;
   top: 12px;
+  border: none;
+}
+
+.game_over_info {
+  display: none;
+  text-align: center;
+  font-size: 2em;
+}
+.game_over_info.bottom_info {
+  margin-top: 450px;
+}
+
+body.player_1_won {
+  background: #DE7E7E;
+  animation: player_1_won_animation 500ms;
+}
+body.player_0_won {
+  background: #F1F191;
+  animation: player_0_won_animation 500ms;
 }
 
 .modal {
   display: none;
   animation-name: modal_intro;
-  animation-duration: 800ms;
+  animation-duration: 2s;
 }
 .modal_overlay {
   top: 0;
@@ -56,7 +80,7 @@
   border-radius: 20px;
   box-shadow: #7B7B7B 0 0 50px;
 }
-.game_over_modal a.play_again_btn {
+a.play_again_btn {
   display: block;
   background: #6180A7;
   color: white;

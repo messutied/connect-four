@@ -38,7 +38,8 @@ function Game() {
 
     var piece = $(dummyPiece).clone();
     piece.addClass(turn ? 'player1' : 'player2')
-         .addClass('piece_animate_intro_'+placedYInversed);
+         .addClass('piece_animate_intro_'+placedYInversed)
+         .addClass('piece_'+placedX+'-'+placedY);
 
     piece.appendTo($board).css({
       left: placedX*BOARD_PIECE_SIZE,
@@ -55,10 +56,17 @@ function Game() {
   }
 
   var checkWinner = function(placedX, placedY) {
-    if (GameLogic.isVictory(matrix, placedX, placedY)) {
+    var resp = GameLogic.isVictory(matrix, placedX, placedY);
+    if (resp) {
+      console.log(resp);
+      for (var i = 0; i < resp.length; i++) {
+        var place = resp[i];
+        $('.piece_'+place[0]+'-'+place[1]).addClass('connected');
+      }
       $('.player_name').text(PLAYERS[turn]);
-      $('.modal_overlay').addClass('player'+turn);
-      $('.modal').show().addClass('turn_info_changed');
+      $('.game_over_info').show();
+      $('.turn_info, .game_explanation').hide();
+      $('body').addClass('player_'+turn+'_won');
       gameTerminated = true;
       return true;
     }

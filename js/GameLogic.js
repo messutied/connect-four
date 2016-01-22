@@ -8,7 +8,7 @@ var GameLogic = {
     if (nColumns == undefined) nColumns = this.N_COLUMNS;
     if (connectsToWin == undefined) connectsToWin = this.N_CONNECTS_TO_WIN;
 
-    var i, j, x, y, maxX, maxY, steps, count = 0;
+    var i, j, x, y, maxX, maxY, steps, victoryInfo, count = 0, winPlaces = [];
     var directions = [
       { x: 0, y: 1  }, // Vertical
       { x: 1, y: 0  }, // Horizontal
@@ -29,6 +29,7 @@ var GameLogic = {
       for (j = 0; j <= steps; j++, x += directions[i].x, y += directions[i].y) {
         if ( typeof matrix[x] != 'undefined' && typeof matrix[x][y] != 'undefined' &&
              matrix[x][y] == matrix[placedX][placedY] ) {
+          winPlaces.push([x,y]);
           // Increase count
           if (++count >= connectsToWin) {
             break outerloop;
@@ -36,10 +37,11 @@ var GameLogic = {
         } else {
           // Reset count
           count = 0;
+          winPlaces = [];
         }
       }
     }
 
-    return count >= connectsToWin;
+    return count >= connectsToWin ? winPlaces : false;
   }
 }

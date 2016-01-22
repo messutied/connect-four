@@ -1,25 +1,39 @@
-.board {
+.board_bg {
+  background: white;
+  width: 490px;
+  height: 420px;
   margin: 20px auto;
+  z-index: -2;
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+
+.board {
   /* 70x70 sprites - seven-column, six-row */
   background: url('../sprites/board_piece.png');
   background-size: 70px 70px;
   width: 490px;
   height: 420px;
-  position: relative;
+  position: absolute;
+  margin: 20px auto;
+  left: 0;
+  right: 0;
 }
 
 .piece {
   position: absolute;
   display: inline-block;
-  width: 70px;
-  height: 70px;
+  border: 15px solid transparent;
+  width: 40px;
+  height: 40px;
   border-radius: 35px;
   background: #D64949; /* red */
   z-index: -1;
   /*opacity: 0;*/
 }
 .piece.player2 {
-  background: #EAEA0F /* yellow */;
+  background: #EAEA0F; /* yellow */
 }
 .piece.won {
   background: purple;
